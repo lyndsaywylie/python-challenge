@@ -67,9 +67,7 @@ with open('analysis.txt', 'w') as text:
     text.write("Election Results\n")
     text.write("--------------------------\n")
     text.write(f"Total Votes: {num_votes}\n")
-    
     for count in range(len(candidates)):
-        count = 0
         text.write(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})\n")
     text.write("---------------------------\n")
     text.write(f"Winner: {winner}\n")
