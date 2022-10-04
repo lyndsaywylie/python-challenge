@@ -47,7 +47,7 @@ print("Greatest Decrease in Profits: " + str(decrease_date) + " ($" + str(greate
 print("----------------------------------------------------------")
 
 
-with open('financial_analysis.txt', 'w') as text:
+with open('analysis.txt', 'w') as text:  
     text.write("----------------------------------------------------------\n")
     text.write("  Financial Analysis"+ "\n")
     text.write("----------------------------------------------------------\n\n")
