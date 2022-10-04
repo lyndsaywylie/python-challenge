@@ -62,13 +62,13 @@ for files in election_data:
     print("---------------------------")
 
 with open('analysis.txt', 'w') as text:
-    text.write("Election Results")
-    text.write("--------------------------")
-    text.write(f"Total Votes: {num_votes}")
+    text.write("Election Results\n")
+    text.write("--------------------------\n")
+    text.write(f"Total Votes: {num_votes}\n")
     for count in range(len(candidates)):
-        text.write(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})")
-    text.write("---------------------------")
-    text.write(f"Winner: {winner}")
-    text.write("---------------------------")
+        text.write(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})\n")
+    text.write("---------------------------\n")
+    text.write(f"Winner: {winner}\n")
+    text.write("---------------------------\n")
 
     
