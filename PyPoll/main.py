@@ -42,9 +42,9 @@ for files in election_data:
         vote_percentage = vote_counts[count]/num_votes*100
         percentages.append(vote_percentage)
         if vote_counts[count] > max_votes:
-            max_votes = vote_counts[count]
+            max_votes = (vote_counts[count] /2)
             print(max_votes)
-            max_index = count
+            max_index = count 
     winner = candidates[max_index]
 
     # Round decimal
@@ -61,11 +61,15 @@ for files in election_data:
     print(f"Winner: {winner}")
     print("---------------------------")
 
+# My count is doubling when printing to the analysis but obviously the % are still correct
+
 with open('analysis.txt', 'w') as text:
     text.write("Election Results\n")
     text.write("--------------------------\n")
     text.write(f"Total Votes: {num_votes}\n")
+    
     for count in range(len(candidates)):
+        count = 0
         text.write(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})\n")
     text.write("---------------------------\n")
     text.write(f"Winner: {winner}\n")
