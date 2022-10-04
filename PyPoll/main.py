@@ -57,7 +57,7 @@ for files in election_data:
 
     # Round decimal
 
-    percentages = [round(i,2) for i in percentages]
+    percentages = [round(i,3) for i in percentages]
 
     # Print results
     print("Election Results")
@@ -69,23 +69,4 @@ for files in election_data:
     print(f"Winner: {winner}")
     print("---------------------------")
 
-    # Name white file
-    output_file = election_dataCSV[0:-4]
-
-    write_election_dataCSV = f"{output_file}pypoll_results.txt"
-
-    # Open write file
-    filewriter = open(write_election_dataCSV, mode = 'w')
-
-    # Print to write file
-    filewriter.write("Election Results\n")
-    filewriter.write("--------------------------\n")
-    filewriter.write(f"Total Votes: {num_votes}\n")
-    for count in range(len(candidates)):
-        filewriter.write(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})\n")
-    filewriter.write("---------------------------\n")
-    filewriter.write(f"Winner: {winner}\n")
-    filewriter.write("---------------------------\n")
-
-    # Close file
-    filewriter.close()
+    
