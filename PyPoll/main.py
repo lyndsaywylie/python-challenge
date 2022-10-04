@@ -1,34 +1,26 @@
 import os
 import csv
 
-# Create variables for calculations
+
 candidates = []
 num_votes = 0
 vote_counts = []
 
-# List of files 
 election_data = ['1', '2']
 
-# Loop through files
+
 for files in election_data:
-    # Get CSV
+    
     election_dataCSV = os.path.join("Resources", "election_data.csv")
 
-    # Open current CSV
     with open(election_dataCSV) as csvFile:
 
         csvReader = csv.reader(csvFile, delimiter=',')
-
-        # Skip headers
         line = next(csvReader,None)
 
         # Process the votes
         for line in csvReader:
-
-            # Add to total number of votes
             num_votes = num_votes + 1
-
-            # The candidate voted for
             candidate = line[2]
 
             # If the candidate has other votes then add to vote total
@@ -59,7 +51,7 @@ for files in election_data:
 
     percentages = [round(i,3) for i in percentages]
 
-    # Print results
+   
     print("Election Results")
     print("--------------------------")
     print(f"Total Votes: {num_votes}")
@@ -68,5 +60,15 @@ for files in election_data:
     print("---------------------------")
     print(f"Winner: {winner}")
     print("---------------------------")
+
+with open('analysis.txt', 'w') as text:
+    text.write("Election Results")
+    text.write("--------------------------")
+    text.write(f"Total Votes: {num_votes}")
+    for count in range(len(candidates)):
+        text.write(f"{candidates[count]}: {percentages[count]}% ({vote_counts[count]})")
+    text.write("---------------------------")
+    text.write(f"Winner: {winner}")
+    text.write("---------------------------")
 
     
